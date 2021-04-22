@@ -19,16 +19,22 @@ app.get('/author', (req,res)=>{
 })
 
 app.get('/trip', (req,res)=>{
-    MongoClient.connect(connectionURL, {useNewURLParser: true}, (error, client) =>{
+    MongoClient.connect(connectionURL, (error, client) =>{
         if(error){
             return console.log('Unable to connect to database')
         
         }
         console.log('Connection succesfully')
+        let filter = {};
+        if(req.query.placeVisited == 'true'){
+            filter = {placeVisited:true}
+        }else{
+            filter = {placeVisited:false}
+        }
 
         const db = client.db('tripplanner');
 
-        db.collection('trips').find().toArray( (err, result) =>{
+        db.collection('trips').find(filter).toArray( (err, result) =>{
             if(err) throw err;
             console.log(result)
             res.send(result);
