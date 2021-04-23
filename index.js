@@ -6,6 +6,14 @@ const connectionURL = 'mongodb://localhost:27017'
 const app = express()
 const MongoClient = mongodb.MongoClient
 
+app.use(
+    express.urlencoded({
+        extended: true
+    })
+)
+
+app.use(express.json())
+
 app.get('', (req,res)=> {
     res.send('Hello! I am your NoteJS server!')
 })
@@ -60,6 +68,19 @@ app.get('/trip', (req,res)=>{
     })
 })
 
+app.post('/trip/new', (req,res)=>{
+   // const data = req.body;
+    console.log(req.body)
+   // const name = data.name;
+   // const priority = data.priority;
+   // let price = 'undefined';
+  //  if(data.price){
+  //      price=data.price;
+   // }
+})
+
+
 app.listen(3000, ()=>{
     console.log('Server is up on port 3000')
 })
+
