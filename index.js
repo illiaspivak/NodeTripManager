@@ -26,11 +26,25 @@ app.get('/trip', (req,res)=>{
         }
         console.log('Connection succesfully')
         let filter = {};
+        if(req.query.placeVisited){}
         if(req.query.placeVisited == 'true'){
             filter = {placeVisited:true}
-        }else{
+        }
+        if(req.query.placeVisited == 'false'){
             filter = {placeVisited:false}
         }
+
+        if(req.query.difficultyLevel == '1'){
+            filter = {difficultyLevel:1}
+        }
+        if(req.query.difficultyLevel == '2'){
+            filter = {difficultyLevel:2}
+        }
+        if(req.query.difficultyLevel == '3'){
+            filter = {difficultyLevel:3}
+        }
+
+
 
         const db = client.db('tripplanner');
 
