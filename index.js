@@ -65,14 +65,13 @@ app.get('/trip', (req,res)=>{
 })
 
 app.post('/trip/new', (req,res)=>{
-   // const data = req.body;
-    console.log(req.body)
-   // const name = data.name;
-   // const priority = data.priority;
-   // let price = 'undefined';
-  //  if(data.price){
-  //      price=data.price;
-   // }
+    const data = req.body;
+    console.log(data)
+    const title = data.title;
+    const place = data.place;
+    const distance = data.distance;
+    const difficultyLevel = data.difficultyLevel;
+    console.log(title)
 })
 
 
