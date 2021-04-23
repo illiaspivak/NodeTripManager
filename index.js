@@ -64,15 +64,35 @@ app.get('/trip', (req,res)=>{
     })
 })
 
+
 app.post('/trip/new', (req,res)=>{
-    const data = req.body;
-    console.log(data)
-    const title = data.title;
-    const place = data.place;
-    const distance = data.distance;
-    const difficultyLevel = data.difficultyLevel;
-    console.log(title)
+    MongoClient.connect(connectionURL, (error, client) =>{
+        if(error){
+            return console.log('Unable to connect to database')
+        
+        }
+        const db = client.db('tripplanner');
+        const data = req.body;
+        console.log(data)
+        const title = data.title;
+        const place = data.place;
+        const distance = data.distance;
+        const difficultyLevel = data.difficultyLevel;
+        console.log(title)
+        const placeVisited = false;
+        let trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
+        db.collection('trips').insertOne(trip, function(err, result){
+            
+            if(err){ 
+                return console.log(err);
+            }
+            console.log(result.ops);
+        });
+    })
+    
 })
+
+
 
 
 app.listen(3000, ()=>{
