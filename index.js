@@ -93,6 +93,47 @@ app.post('/trip/new', (req,res)=>{
 })
 
 
+app.put('/trip/visit', (req,res)=>{
+    const name = req.query.title
+    if(!name){
+        res.status(400).send({"error":"missing title paarameter"})
+    }
+    console.log(name)
+    MongoClient.connect(connectionURL, (error, client) =>{
+        if(error){
+            console.log('Unable to connect to database')
+            res.status(400).send({"error":"Unable to connect to database"})
+        
+        }
+        const db = client.db('tripplanner');
+        const col = db.collection("trips");
+        
+        let filter = {title: name};
+
+        col.find(filter).toArray( (err, result) =>{
+            if(err){
+                res.status(400).send({"error":"Unable to connect to database"})
+            }
+            console.log(result)
+        })
+
+        col.findOneAndUpdate(
+            {title: name}, // selection criteria
+            { $set: {placeVisited: true}}, // update parameter
+            function(err, result){
+                if(err){
+                    res.status(400).send({"error":"Invalid data"})
+                }else{
+                    res.status(200).send({"result":"ok"})
+                }
+                console.log(result);
+                client.close();
+            }
+        );
+       
+    })
+})
+
 
 
 app.listen(3000, ()=>{
