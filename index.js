@@ -135,6 +135,30 @@ app.put('/trip/visit', (req,res)=>{
 })
 
 
+app.delete('/trip/delete', (req,res)=>{
+    const name = req.query.title
+    if(!name){
+        res.status(400).send({"error":"missing title paarameter"})
+    }
+    console.log(name)
+    MongoClient.connect(connectionURL, (error, client) =>{
+        if(error){
+            console.log('Unable to connect to database')
+            res.status(400).send({"error":"Unable to connect to database"})
+        
+        }
+        const db = client.db('tripplanner');
+        const col = db.collection("trips");
+    
+        col.deleteOne({title: name}, function(err, result){
+            console.log(result);
+            client.close();
+            res.status(200).send({"result":"ok"})
+        });
+    })
+})
+
+
 
 app.listen(3000, ()=>{
     console.log('Server is up on port 3000')
