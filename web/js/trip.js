@@ -14,12 +14,12 @@ $( ()=>{
                     const placeVisited = result[index].placeVisited
         
                     var text = title + " (" + place + ") distance: " + 
-                    distance + " difficulty level: " + difficultyLevel +
-                    " place visited: " + placeVisited;
+                    distance + "; difficulty level: " + difficultyLevel +
+                    "; place visited: " + placeVisited;
                     console.log(text);
-                    var newElement = $("<div></div>").text(text);
+                    var newElement = $("<div ></div>").text(text);
                     var elementBR=$("<br/>");
-                    $("#parrent").append(newElement, elementBR); 
+                    $("#parrent").append(newElement,  elementBR); 
                 }
             },
             400: (err)=>{ console.log('Bad request, ')},
