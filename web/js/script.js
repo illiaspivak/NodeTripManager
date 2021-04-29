@@ -8,24 +8,37 @@ btn.addEventListener("click", () =>{
     
     const object = {title, place, distance, difficultyLevel};
     console.log(object);
-    const jsonData=JSON.stringify(object);
-    console.log(jsonData);
+    // const jsonData=JSON.stringify(object);
+    // console.log(jsonData);
 
-    let trip = {"title": title, "place": place, "distance":distance, "difficultyLevel":difficultyLevel};
+    // let trip = {"title": title, "place": place, "distance":distance, "difficultyLevel":difficultyLevel};
 
-    fetch('http://localhost:3000/trip/new', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
+    // fetch('http://localhost:3000/trip/new', {
+    //         method: 'POST', 
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //     },
+    //     mode:"no-cors",
+    //     body: object,
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log('Success:', data);
+    // })
+    // .catch((error) => {
+    //      console.error('Error:', error);
+    //  });
+    $.ajax({
+        url: "http://localhost:3000/trip/new",
+        type: "post",
+        //dataType: "json",
+        //contentType: "application/json",
+        data: object,
+        success: (result)=>{
+            console.log(result);
         },
-        mode:"no-cors",
-        body: object,
+        error:  (err)=>{
+            console.log("Error: ",err);
+        }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-         console.error('Error:', error);
-     });
 })
