@@ -14,6 +14,22 @@ app.use(
 
 app.use(express.json())
 
+app.use(function (req, res, next) {
+    /*var err = new Error('Not Found');
+     err.status = 404;
+     next(err);*/
+  
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  
+   
+    // Pass to next layer of middleware
+    next();
+  });
+
 app.get('', (req,res)=> {
     res.send('Hello! I am your NoteJS server!')
 })
@@ -66,6 +82,7 @@ app.get('/trip', (req,res)=>{
 
 
 app.post('/trip/new', (req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
     MongoClient.connect(connectionURL, (error, client) =>{
         if(error){
             return console.log('Unable to connect to database')
