@@ -93,12 +93,19 @@ app.post('/trip/new', (req,res)=>{
         console.log(data)
         const title = data.title;
         const place = data.place;
-        const distance = data.distance;
+        let distance='undefined';
+        if(data.distance){
+            distance=data.distance;
+        }
         const difficultyLevel = data.difficultyLevel;
         console.log(title)
         const placeVisited = false;
-        let trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
-           
+        let trip;
+        if(distance == NaN){
+            trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
+        }else{
+            trip = {"title": title, "place": place,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
+        }           
         
         db.collection('trips').insertOne(trip, function(err, result){
             
