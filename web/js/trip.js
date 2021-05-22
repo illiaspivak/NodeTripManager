@@ -25,12 +25,14 @@ function complete(element){
                     const distance = result[index].distance
                     const difficultyLevel = result[index].difficultyLevel
                     const placeVisited = result[index].placeVisited
-                    var text = title + " (" + place + ") distance: " + 
-                    distance + "; difficulty level: " + difficultyLevel
+                    var text = " " + title + " (" + place + ")"
+                    if(result[index].distance)
+                        text=text + " distance: "+ distance;
+                        text=text + "; difficulty level: " + difficultyLevel;
                     if(placeVisited==true)
-                     text= text+ " place visited: "+placeVisited;
+                     text= text+ "; You visited this place";
                      if(placeVisited==false)
-                              text=text+"<br/><BUTTON onClick=\"complete(this)\" value=\""+title+"\">(Complete task)</BUTTON>";
+                              text=text+"   <BUTTON onClick=\"complete(this)\" value=\""+title+"\">(Place visited)</BUTTON>";
                      console.log(text);
                      var newElement = $("<div></div>").html(text);
                      var elementBR=$("<br/>");

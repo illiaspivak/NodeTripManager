@@ -5,8 +5,13 @@ btn.addEventListener("click", () =>{
     const place = document.getElementById("place").value;
     const distance = parseInt(document.getElementById("distance").value);
     const difficultyLevel = parseInt(document.getElementById("difficultyLevel").value);
+    if(distance < 0){
+        const object = {title, place, difficultyLevel};
+    }else{
+        const object = {title, place, distance, difficultyLevel};
+    }
     
-    const object = {title, place, distance, difficultyLevel};
+    
     console.log(object);
     // const jsonData=JSON.stringify(object);
     // console.log(jsonData);

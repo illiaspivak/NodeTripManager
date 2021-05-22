@@ -10,6 +10,7 @@
     font-family: Comic Sans MS;
     font-size: 18px;
 	background-color: rgb(128, 240, 128); 
+    border-radius: 10px;
 }
 h1 {
     color: rgb(0, 128, 32); 

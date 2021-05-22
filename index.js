@@ -93,12 +93,24 @@ app.post('/trip/new', (req,res)=>{
         console.log(data)
         const title = data.title;
         const place = data.place;
-        const distance = data.distance;
+        let distance='undefined';
+         if(data.distance){
+             distance=data.distance;
+            }
+            console.log(title, ' ',place,' ', distance);
         const difficultyLevel = data.difficultyLevel;
         console.log(title)
         const placeVisited = false;
-        let trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
-        db.collection('trips').insertOne(trip, function(err, result){
+        if(title == null || place == null || difficultyLevel < 1 || difficultyLevel > 3){
+            return console.log('Incorrect input data')
+        }
+        const object = {title, place, placeVisited, difficultyLevel};
+        if(distance!=='undefined'){
+            object.distance=distance;
+        }
+           
+        
+        db.collection('trips').insertOne(object, function(err, result){
             
             if(err){ 
                 return console.log(err);
@@ -174,6 +186,8 @@ app.delete('/trip/delete', (req,res)=>{
         });
     })
 })
+
+
 
 
 
