@@ -113,7 +113,7 @@ app.post('/trip/new', (req,res)=>{
 app.put('/trip/visit', (req,res)=>{
     const name = req.query.title
     if(!name){
-        res.status(400).send({"error":"missing title paarameter"})
+        res.status(400).send({"error":"missing title parameter"})
     }
     console.log(name)
     MongoClient.connect(connectionURL, (error, client) =>{
