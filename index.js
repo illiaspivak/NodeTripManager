@@ -101,7 +101,7 @@ app.post('/trip/new', (req,res)=>{
         console.log(title)
         const placeVisited = false;
         let trip;
-        if(distance == NaN){
+        if(distance!=='undefined'){
             trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
         }else{
             trip = {"title": title, "place": place,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};
