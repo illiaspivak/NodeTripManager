@@ -25,7 +25,7 @@ function complete(element){
                     const distance = result[index].distance
                     const difficultyLevel = result[index].difficultyLevel
                     const placeVisited = result[index].placeVisited
-                    var text = "   " + title + " (" + place + ")"
+                    var text = title + " (" + place + ")"
                     if(result[index].distance)
                         text=text + " distance: "+ distance;
                         text=text + "; difficulty level: " + difficultyLevel;

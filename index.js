@@ -100,6 +100,9 @@ app.post('/trip/new', (req,res)=>{
         const difficultyLevel = data.difficultyLevel;
         console.log(title)
         const placeVisited = false;
+        if(title == "" || place == "" || difficultyLevel < 1 || difficultyLevel > 3){
+            return console.log('Incorrect input data')
+        }
         let trip;
         if(distance!=='undefined'){
             trip = {"title": title, "place": place,"distance":distance,"placeVisited":placeVisited,"difficultyLevel":difficultyLevel};

@@ -5,11 +5,12 @@ btn.addEventListener("click", () =>{
     const place = document.getElementById("place").value;
     const distance = parseInt(document.getElementById("distance").value);
     const difficultyLevel = parseInt(document.getElementById("difficultyLevel").value);
-    console.log(distance);
     const object = {title, place, difficultyLevel};
+    
     if(distance>-1){
         object.distance=distance;
     }
+
     
     
 
