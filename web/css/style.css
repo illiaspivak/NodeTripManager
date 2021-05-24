@@ -1,24 +1,50 @@
-  
-h1 {
-    color: rgb(165, 41, 41);
-    text-align: center;
-    font-family: Arial Black;
-    }
-div{
-    width: 300px;
-    height: 300px;
-    border: 1px solid red;
-    margin: 50px auto;
-    background-color: rgb(0, 255, 242);
-    }
-td{
-    color: rgb(78, 5, 60);
-    font-family: Arial Black;
-    }
-.test {
-    text-align: center;
-    width: 300px;
-    color: rgb(165, 41, 41);
-    text-align: center;
-    font-family: Arial Black;
-}
+  h1 {
+      margin: 0px auto;
+      border-radius: 10px;
+      border: 3px solid rgb(3, 41, 12);
+      color: rgb(3, 41, 12);
+      width: 300px;
+      background-color: #FC9D00;
+      text-align: center;
+      font-family: Arial Black;
+  }
+
+  #addTrip, #showAll {
+      width: 200px;
+      height: 30px;
+      background-color: #FC9D00;
+      font-family: Arial Black;
+      font-size: 18px;
+  }
+
+  form {
+      width: 300px;
+      border-radius: 10px;
+      height: 300px;
+      border: 3px solid rgb(3, 41, 12);
+      margin: 20px auto;
+      background-color: rgb(128, 240, 128);
+  }
+
+  #difficultyLevel, #distance, #place, #tripTitle {
+    
+    height: 18px;
+      background-color: #FC9D00;
+  }
+
+  #tripTitle {
+      margin: 10px auto 0px;
+  }
+
+  body {
+      background-image: url("mountain1.png");
+  }
+
+  .test {
+      text-align: center;
+      width: 300px;
+      color: rgb(3, 41, 12);
+      text-align: center;
+      font-family: Arial Black;
+      font-size: 18px;
+  }

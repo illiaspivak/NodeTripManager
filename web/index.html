@@ -9,17 +9,20 @@
 </head>
 <body>
     <div>
+        <h1>New trip</h1>
         <form class="test">
-            <h1>New trip</h1>
-            <input type="text" placeholder="name of the trip" id="tripTitle" width="30"> <br> 
+            <p></p>   
+            <input type="text" placeholder="name of the trip" id="tripTitle" width="30" maxlength="20"> <br> 
             <p></p>
-            <input type="text" placeholder="place" id="place" width="30"> <br>
+            <input type="text" placeholder="place" id="place" width="30" maxlength="20"> <br>
             <p></p>
             Distance: <input type="number" min="1" id="distance" value="1" width="30"> <br>
             <p></p>
             Difficulty level: <input type="number" min="1" max="3" id="difficultyLevel" value="2"> <br>
             <p></p>
             <button id="addTrip">Add new trip</button>
+            <p></p>
+            <input id="showAll" type="button" value="Show all trips" onclick="location.href='trip.html'">
         </form>
     </div>
 

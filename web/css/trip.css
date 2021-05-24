@@ -1,19 +1,49 @@
+h1 {
+      margin: 0px auto 30px;
+      border-radius: 10px;
+      border: 3px solid rgb(3, 41, 12);
+      color: rgb(3, 41, 12);
+      width: 300px;
+      background-color: rgb(128, 240, 128);
+      text-align: center;
+      font-family: Arial Black;
+  }
+  
+  #addTrip{
+    width: 120px;
+    height: 30px;
+    background-color: #FC9D00;
+    margin-left: 1056px;
+    border-radius: 10px;
+    border: 3px solid rgb(3, 41, 12);
+    font-family: Arial Black;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 30px;
+   
+
+}
+
+  button{
+    width: 150px;
+    
+    background-color: rgb(128, 240, 128);
+    font-family: Arial Black;
+    font-size: 15px;
+    color: rgb(3, 41, 12);
+  }
 #parrent div {
-	border-width: 3px; 
-	border-style: solid; 
-	border-color: rgb(0, 128, 32);  
-	width: 700px;
+	border: 3px solid rgb(3, 41, 12); 
+	width: 1000px;
 	height: 30px;
     margin: 5px auto 5px;
     padding-top: 10px; 
-    color: rgb(21, 3, 54);
-    font-family: Comic Sans MS;
+    color: rgb(3, 41, 12);
+    font-family: Arial Black;
     font-size: 18px;
-	background-color: rgb(128, 240, 128); 
+	background-color: #FC9D00;
     border-radius: 10px;
 }
-h1 {
-    color: rgb(0, 128, 32); 
-    text-align: center;
-    font-family: Arial Black;
-    }
+body{
+    background-image: url("mountain1.png");
+}

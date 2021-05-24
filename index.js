@@ -179,7 +179,7 @@ app.delete('/trip/delete', (req,res)=>{
         const db = client.db('tripplanner');
         const col = db.collection("trips");
     
-        col.deleteOne({title: name}, function(err, result){
+        col.deleteMany({title: name}, function(err, result){
             console.log(result);
             client.close();
             res.status(200).send({"result":"ok"})
